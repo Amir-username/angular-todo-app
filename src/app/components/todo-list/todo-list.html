@@ -1,0 +1,16 @@
+<ul>
+  @for (todo of todos(); track todo.id) {
+  <li [class.completed]="todo.completed">
+    <input
+      type="checkbox"
+      [checked]="todo.completed"
+      (change)="toggle.emit(todo.id)"
+    />
+    <span>{{ todo.title }}</span>
+    <small>{{ todo.createdAt | date : "mediumDate" }}</small>
+    <button (click)="delete.emit(todo.id)">×</button>
+  </li>
+  } @empty {
+  <li class="empty">No tasks found</li>
+  }
+</ul>
