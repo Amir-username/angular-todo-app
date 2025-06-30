@@ -57,4 +57,8 @@ export class TodoService {
 
     this.saveTodos(filtered);
   }
+
+  reorderTodos(todos: Todo[]): void {
+    this.saveTodos(todos);
+  }
 }

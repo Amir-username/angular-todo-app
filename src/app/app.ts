@@ -35,4 +35,9 @@ export class App {
     this.todoService.deleteTodo(id);
     this.loadTodos();
   }
+
+  reorderTodos(todos: Todo[]) {
+    this.todoService.reorderTodos(todos);
+    this.todos = todos;
+  }
 }

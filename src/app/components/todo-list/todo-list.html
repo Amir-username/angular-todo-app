@@ -1,6 +1,21 @@
-<ul>
-  @for (todo of todos(); track todo.id) {
-  <li [class.completed]="todo.completed">
+<ul
+  #todoList
+  cdkDropList
+  [cdkDropListData]="todos()"
+  [cdkDropListConnectedTo]="[]"
+  (cdkDropListDropped)="drop($event)"
+>
+  @for (todo of todos(); track todo.id; let i = $index) {
+  <li
+    cdkDrag
+    [cdkDragData]="todo"
+    [cdkDragBoundary]="todoList"
+    [class.completed]="todo.completed"
+    [class.cdk-drag-dragging]="todo.dragging"
+    (cdkDragStarted)="todo.dragging = true"
+    (cdkDragEnded)="todo.dragging = false"
+  >
+    <span class="drag-handle" cdkDragHandle>≡</span>
     <input
       type="checkbox"
       [checked]="todo.completed"
