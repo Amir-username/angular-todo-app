@@ -10,15 +10,15 @@ li {
   padding: 0.75rem;
   border-bottom: 1px solid #eee;
   background: white;
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  /* transition: transform 250ms cubic-bezier(0, 0, 0.2, 1); */
   &.completed span:not(.drag-handle) {
     text-decoration: line-through;
     color: #888;
   }
-  &.cdk-drag-dragging {
+  /* &.cdk-drag-dragging {
     transition: none;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
+  } */
 }
 .drag-handle {
   cursor: move;
@@ -48,7 +48,9 @@ button {
   color: #888;
 }
 
-/* Drag & drop animations */
+
+
+/* 
 .cdk-drag-placeholder {
   opacity: 0;
 }
@@ -68,12 +70,11 @@ button {
   padding: 0.75rem;
   display: flex;
   align-items: center;
-  max-width: 100%; /* Constrain to list width */
+  max-width: 100%;
 }
 
-/* Add placeholder styling */
 .cdk-drag-placeholder {
   background: #f0f0f0;
   border: 2px dashed #ccc;
   opacity: 0.8;
-}
+} */

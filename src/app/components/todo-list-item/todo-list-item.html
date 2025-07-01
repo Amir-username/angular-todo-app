@@ -1,0 +1,19 @@
+<!-- <li
+  cdkDrag
+  [cdkDragData]="todo"
+  [cdkDragBoundary]="todoList"
+  [class.completed]="todo.completed"
+  [class.cdk-drag-dragging]="todo.dragging"
+  (cdkDragStarted)="todo.dragging = true"
+  (cdkDragEnded)="todo.dragging = false"
+>
+  <span class="drag-handle" cdkDragHandle>≡</span>
+  <input
+    type="checkbox"
+    [checked]="todo.completed"
+    (change)="toggle.emit(todo.id)"
+  />
+  <span>{{ todo.title }}</span>
+  <small>{{ todo.createdAt | date : "mediumDate" }}</small>
+  <button (click)="delete.emit(todo.id)">×</button>
+</li> -->
