@@ -6,7 +6,7 @@ import { isPlatformBrowser } from '@angular/common';
   providedIn: 'root',
 })
 export class TodoService {
-  private strorageKey = 'todos';
+  private stroageKey = 'todos';
   private isBrowser: boolean;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
@@ -16,13 +16,13 @@ export class TodoService {
   getTodos(): Todo[] {
     if (!this.isBrowser) return []; // Skip in non-browser environments
 
-    const todosJson = localStorage.getItem(this.strorageKey);
+    const todosJson = localStorage.getItem(this.stroageKey);
     return todosJson ? JSON.parse(todosJson) : [];
   }
 
   saveTodos(todos: Todo[]): void {
     if (!this.isBrowser) return; // Skip in non-browser environments
-    localStorage.setItem(this.strorageKey, JSON.stringify(todos));
+    localStorage.setItem(this.stroageKey, JSON.stringify(todos));
   }
   addTodo(title: string): Todo {
     const currTodos = this.getTodos();
