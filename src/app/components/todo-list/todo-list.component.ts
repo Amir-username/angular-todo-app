@@ -6,10 +6,11 @@ import {
   DragDropModule,
   moveItemInArray,
 } from '@angular/cdk/drag-drop';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'todo-list',
-  imports: [DatePipe, DragDropModule],
+  imports: [DatePipe, DragDropModule, FormsModule],
   templateUrl: './todo-list.html',
   styleUrl: './todo-list.css',
 })

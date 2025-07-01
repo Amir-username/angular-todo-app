@@ -16,6 +16,7 @@
     (cdkDragEnded)="todo.dragging = false"
   >
     <span class="drag-handle" cdkDragHandle>≡</span>
+
     <input
       type="checkbox"
       [checked]="todo.completed"
@@ -23,7 +24,7 @@
     />
     <span>{{ todo.title }}</span>
     <small>{{ todo.createdAt | date : "mediumDate" }}</small>
-    <button (click)="delete.emit(todo.id)">×</button>
+    <button class="close" (click)="delete.emit(todo.id)">×</button>
   </li>
   } @empty {
   <li class="empty">No tasks found</li>

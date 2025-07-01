@@ -31,6 +31,7 @@ export class TodoService {
       title: title,
       completed: false,
       createdAt: new Date(),
+      isEditing: false,
     };
 
     const newTodos = [...currTodos, newTodo];
