@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { TodoForm } from './components/todo-form/todo-form.component';
 import { TodoList } from './components/todo-list/todo-list.component';
 import { TodoService } from './services/todo.service';
@@ -11,20 +11,21 @@ import { Todo } from './models/todo.model';
   styleUrl: './app.css',
 })
 export class App {
-  todos: Todo[] = [];
+  todos = signal<Todo[]>([]);
+  selectedTodo = signal<Todo | null>(null);
 
   constructor(private todoService: TodoService) {
     this.loadTodos();
   }
 
   loadTodos() {
-    this.todos = this.todoService.getTodos();
+    this.todos.set(this.todoService.getTodos());
   }
 
-  addTodo(title: string) {
-    this.todoService.addTodo(title);
-    this.loadTodos();
-  }
+  // addTodo(title: string) {
+  //   this.todoService.addTodo(title);
+  //   this.loadTodos();
+  // }
 
   toggleTodo(id: string) {
     this.todoService.toggleCompletion(id);
@@ -38,6 +39,16 @@ export class App {
 
   reorderTodos(todos: Todo[]) {
     this.todoService.reorderTodos(todos);
-    this.todos = todos;
+    this.todos.set(todos);
+  }
+
+  selectTodo(id: string) {
+    let todo: Todo;
+    this.todos().map((t) => {
+      if (t.id === id) {
+        todo = t;
+        this.selectedTodo.set(todo);
+      }
+    });
   }
 }

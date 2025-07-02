@@ -19,6 +19,7 @@ export class TodoList {
   toggle = output<string>();
   delete = output<string>();
   reorder = output<Todo[]>();
+  selectTodo = output<string>()
 
   drop(event: CdkDragDrop<Todo[]>) {
     const todos = [...this.todos()];

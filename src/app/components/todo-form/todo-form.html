@@ -1,10 +1,28 @@
 <form (ngSubmit)="addTodo()">
-  <input
-    type="text"
-    [(ngModel)]="title"
-    name="title"
-    placeholder="Add new task..."
-    required
-  />
-  <button type="submit">Add</button>
+  <div class="title-input">
+    <input
+      type="text"
+      [(ngModel)]="title"
+      name="title"
+      placeholder="Add new task..."
+      required
+    />
+    <select name="tag" [(ngModel)]="tag">
+      <option value="daily">daily</option>
+      <option value="important">important</option>
+      <option value="shopping">shopping</option>
+      <option value="reminder">reminder</option>
+    </select>
+    <button type="submit">Add</button>
+  </div>
+  @if (isDescOpen()) {
+  <textarea
+    [(ngModel)]="description"
+    placeholder="your task description"
+    name="description"
+  ></textarea>
+  <span (click)="isDescOpen.set(false)">close</span>
+  } @else {
+  <span (click)="isDescOpen.set(true)">add description</span>
+  }
 </form>

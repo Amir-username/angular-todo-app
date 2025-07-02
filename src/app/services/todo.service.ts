@@ -1,5 +1,5 @@
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { Todo } from '../models/todo.model';
+import { TagType, Todo } from '../models/todo.model';
 import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
@@ -24,7 +24,7 @@ export class TodoService {
     if (!this.isBrowser) return; // Skip in non-browser environments
     localStorage.setItem(this.stroageKey, JSON.stringify(todos));
   }
-  addTodo(title: string): Todo {
+  addTodo(title: string, description?: string, tag: TagType = 'daily'): Todo {
     const currTodos = this.getTodos();
     const newTodo: Todo = {
       id: crypto.randomUUID(),
@@ -32,6 +32,8 @@ export class TodoService {
       completed: false,
       createdAt: new Date(),
       isEditing: false,
+      description: description,
+      tag: tag,
     };
 
     const newTodos = [...currTodos, newTodo];
@@ -39,6 +41,10 @@ export class TodoService {
 
     return newTodo;
   }
+
+  // addDescription(description: string) {
+
+  // }
 
   editTodo(id: string, newTitle: string) {
     const currTodos = this.getTodos();
