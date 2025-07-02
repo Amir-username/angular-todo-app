@@ -40,6 +40,18 @@ export class TodoService {
     return newTodo;
   }
 
+  editTodo(id: string, newTitle: string) {
+    const currTodos = this.getTodos();
+
+    const updatedTodos = currTodos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, title: newTitle };
+      } else return todo;
+    });
+
+    this.saveTodos(updatedTodos);
+  }
+
   toggleCompletion(id: string) {
     const currTodos = this.getTodos();
 
