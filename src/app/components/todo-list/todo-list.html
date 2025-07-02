@@ -15,8 +15,6 @@
     (cdkDragStarted)="todo.dragging = true"
     (cdkDragEnded)="todo.dragging = false"
   >
-    <span class="drag-handle" cdkDragHandle>≡</span>
-
     <input
       type="checkbox"
       [checked]="todo.completed"

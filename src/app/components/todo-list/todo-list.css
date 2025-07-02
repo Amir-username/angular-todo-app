@@ -15,6 +15,7 @@ li {
     text-decoration: line-through;
     color: #888;
   }
+  cursor: pointer;
   /* &.cdk-drag-dragging {
     transition: none;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
