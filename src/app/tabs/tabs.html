@@ -1,0 +1,30 @@
+<div class="tabs">
+  <div
+    class="tab-item"
+    (click)="setActiveTab.emit('daily')"
+    [class.active]="activeTabInput() === 'daily'"
+  >
+    daily
+  </div>
+  <div
+    class="tab-item"
+    (click)="setActiveTab.emit('important')"
+    [class.active]="activeTabInput() === 'important'"
+  >
+    important
+  </div>
+  <div
+    class="tab-item"
+    (click)="setActiveTab.emit('shopping')"
+    [class.active]="activeTabInput() === 'shopping'"
+  >
+    shopping
+  </div>
+  <div
+    class="tab-item"
+    (click)="setActiveTab.emit('reminder')"
+    [class.active]="activeTabInput() === 'reminder'"
+  >
+    reminder
+  </div>
+</div>

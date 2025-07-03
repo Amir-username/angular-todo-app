@@ -8,8 +8,8 @@
   }
   <div class="container">
     <h1>Angular 20 Todo App</h1>
-    <!-- <todo-form (todoAdd)="addTodo($event)" /> -->
     <todo-form (loadTodos)="loadTodos()" />
+    <tabs [activeTabInput]="activeTab()" (setActiveTab)="setActiveTab($event)" />
     <todo-list
       [todos]="todos()"
       (toggle)="toggleTodo($event)"

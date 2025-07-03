@@ -13,17 +13,22 @@ export class TodoService {
     this.isBrowser = isPlatformBrowser(platformId); // Check if running in browser
   }
 
-  getTodos(): Todo[] {
+  getTodos(tag: TagType = 'daily'): Todo[] {
     if (!this.isBrowser) return []; // Skip in non-browser environments
 
     const todosJson = localStorage.getItem(this.stroageKey);
-    return todosJson ? JSON.parse(todosJson) : [];
+
+    return (
+      todosJson &&
+      JSON.parse(todosJson).filter((todo: Todo) => todo.tag === tag && todo)
+    );
   }
 
   saveTodos(todos: Todo[]): void {
     if (!this.isBrowser) return; // Skip in non-browser environments
     localStorage.setItem(this.stroageKey, JSON.stringify(todos));
   }
+
   addTodo(title: string, description?: string, tag: TagType = 'daily'): Todo {
     const currTodos = this.getTodos();
     const newTodo: Todo = {

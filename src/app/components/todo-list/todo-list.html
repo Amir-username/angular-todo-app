@@ -7,7 +7,7 @@
 >
   @for (todo of todos(); track todo.id; let i = $index) {
   <li
-    (click)="selectTodo.emit(todo.id)"
+    (dblclick)="selectTodo.emit(todo.id)"
     cdkDrag
     [cdkDragData]="todo"
     [cdkDragBoundary]="todoList"
@@ -22,6 +22,7 @@
       (change)="toggle.emit(todo.id)"
     />
     <span>{{ todo.title }}</span>
+    <!-- <span class="tag">{{ todo.tag }}</span> -->
     <small>{{ todo.createdAt | date : "mediumDate" }}</small>
     <button class="close" (click)="delete.emit(todo.id)">×</button>
   </li>

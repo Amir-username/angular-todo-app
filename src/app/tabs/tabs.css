@@ -1,0 +1,18 @@
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid rgb(224, 222, 222);
+}
+
+.tab-item {
+  color: hsl(0, 0%, 28%);
+  cursor: pointer;
+  padding-bottom: 0.8rem;
+  transition: all;
+  transition-duration: 500ms;
+}
+
+.active {
+  border-bottom: 1px solid rgb(80, 114, 165);
+}

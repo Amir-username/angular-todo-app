@@ -2,11 +2,12 @@ import { Component, signal } from '@angular/core';
 import { TodoForm } from './components/todo-form/todo-form.component';
 import { TodoList } from './components/todo-list/todo-list.component';
 import { TodoService } from './services/todo.service';
-import { Todo } from './models/todo.model';
+import { TagType, Todo } from './models/todo.model';
+import { Tabs } from "./tabs/tabs";
 
 @Component({
   selector: 'todo-app',
-  imports: [TodoForm, TodoList],
+  imports: [TodoForm, TodoList, Tabs],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -14,12 +15,19 @@ export class App {
   todos = signal<Todo[]>([]);
   selectedTodo = signal<Todo | null>(null);
 
+  activeTab = signal<TagType>('daily')
+
+  setActiveTab(tab: TagType) {
+    this.activeTab.set(tab)
+    this.loadTodos()
+  }
+
   constructor(private todoService: TodoService) {
     this.loadTodos();
   }
 
   loadTodos() {
-    this.todos.set(this.todoService.getTodos());
+    this.todos.set(this.todoService.getTodos(this.activeTab()));
   }
 
   // addTodo(title: string) {
