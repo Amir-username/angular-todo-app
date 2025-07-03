@@ -41,18 +41,7 @@ export class App {
           .filter((todo) => todo.tag === this.activeTab())
       );
     }
-    // if (this.activeTab() === "all") {
-    //   this.todos.set(this.todoService.getTodos());
-    // }
-    // else [
-    //   this.todos.set()
-    // ]
   }
-
-  // addTodo(title: string) {
-  //   this.todoService.addTodo(title);
-  //   this.loadTodos();
-  // }
 
   toggleTodo(id: string) {
     this.todoService.toggleCompletion(id);

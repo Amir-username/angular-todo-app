@@ -11,6 +11,8 @@ ul.grid {
   gap: 0.5rem;
   list-style: none;
   padding: 0;
+  position: relative;
+  min-height: 50px;
 }
 
 li.list {

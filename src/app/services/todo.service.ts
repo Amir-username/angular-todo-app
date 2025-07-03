@@ -10,22 +10,19 @@ export class TodoService {
   private isBrowser: boolean;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    this.isBrowser = isPlatformBrowser(platformId); // Check if running in browser
+    this.isBrowser = isPlatformBrowser(platformId);
   }
 
   getTodos(): Todo[] {
-    if (!this.isBrowser) return []; // Skip in non-browser environments
+    if (!this.isBrowser) return [];
 
     const todosJson = localStorage.getItem(this.stroageKey);
 
-    return (
-      todosJson ?
-      JSON.parse(todosJson) : []
-    );
+    return todosJson ? JSON.parse(todosJson) : [];
   }
 
   saveTodos(todos: Todo[]): void {
-    if (!this.isBrowser) return; // Skip in non-browser environments
+    if (!this.isBrowser) return; 
     localStorage.setItem(this.stroageKey, JSON.stringify(todos));
   }
 
@@ -46,10 +43,6 @@ export class TodoService {
 
     return newTodo;
   }
-
-  // addDescription(description: string) {
-
-  // }
 
   editTodo(id: string, newTitle: string) {
     const currTodos = this.getTodos();
