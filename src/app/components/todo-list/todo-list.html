@@ -1,4 +1,12 @@
+<div
+  (click)="view.set(view() === 'grid' ? 'list' : 'grid')"
+  class="view-button"
+>
+  {{ view() }}
+</div>
 <ul
+  [class.list]="view() === 'list'"
+  [class.grid]="view() === 'grid'"
   #todoList
   cdkDropList
   [cdkDropListData]="todos()"
@@ -7,6 +15,8 @@
 >
   @for (todo of todos(); track todo.id; let i = $index) {
   <li
+    [class.list]="view() === 'list'"
+    [class.grid]="view() === 'grid'"
     (dblclick)="selectTodo.emit(todo.id)"
     cdkDrag
     [cdkDragData]="todo"
@@ -16,6 +26,18 @@
     (cdkDragStarted)="todo.dragging = true"
     (cdkDragEnded)="todo.dragging = false"
   >
+    @if (view() === 'grid') {
+    <h4>{{ todo.title }}</h4>
+    <small>{{ todo.createdAt | date : "mediumDate" }}</small>
+    <div class="grid-buttons">
+      <input
+        type="checkbox"
+        [checked]="todo.completed"
+        (change)="toggle.emit(todo.id)"
+      />
+      <button class="close" (click)="delete.emit(todo.id)">×</button>
+    </div>
+    } @else {
     <input
       type="checkbox"
       [checked]="todo.completed"
@@ -25,6 +47,7 @@
     <!-- <span class="tag">{{ todo.tag }}</span> -->
     <small>{{ todo.createdAt | date : "mediumDate" }}</small>
     <button class="close" (click)="delete.emit(todo.id)">×</button>
+    }
   </li>
   } @empty {
   <li class="empty">No tasks found</li>

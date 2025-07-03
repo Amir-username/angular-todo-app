@@ -1,10 +1,19 @@
-ul {
+ul.list {
   list-style: none;
   padding: 0;
   position: relative;
   min-height: 50px; /* Ensure drop zone is always visible */
 }
-li {
+
+ul.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+li.list {
   display: flex;
   align-items: center;
   padding: 0.75rem;
@@ -21,6 +30,29 @@ li {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   } */
 }
+
+li.grid {
+  padding: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(231, 228, 228);
+  border-radius: 0.5rem;
+  &.completed h4:not(.drag-handle) {
+    text-decoration: line-through;
+    color: #888;
+  }
+  cursor: pointer;
+}
+
+.grid-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .drag-handle {
   cursor: move;
   margin-right: 0.5rem;
@@ -74,4 +106,12 @@ small {
 .empty {
   text-align: center;
   color: #888;
+}
+
+
+.view-button {
+  text-align: end;
+  padding: 0.5rem;
+  color: rgb(124, 124, 124);
+  cursor: pointer;
 }

@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, input, output } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 import { Todo } from '../../models/todo.model';
 import {
   CdkDragDrop,
@@ -20,6 +20,8 @@ export class TodoList {
   delete = output<string>();
   reorder = output<Todo[]>();
   selectTodo = output<string>();
+
+  view = signal<'list' | 'grid'>('list');
 
   drop(event: CdkDragDrop<Todo[]>) {
     const todos = [...this.todos()];
