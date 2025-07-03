@@ -21,7 +21,8 @@ export class TodoList {
   reorder = output<Todo[]>();
   selectTodo = output<string>();
 
-  view = signal<'list' | 'grid'>('list');
+  // view = signal<'list' | 'grid'>('list');
+  view = input.required<'list' | 'grid'>()
 
   drop(event: CdkDragDrop<Todo[]>) {
     const todos = [...this.todos()];

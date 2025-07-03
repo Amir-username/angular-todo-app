@@ -50,4 +50,9 @@ span:hover {
 select {
   margin-right: 0.3rem;
   border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+option {
+  cursor: pointer;
 }

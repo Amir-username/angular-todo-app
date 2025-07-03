@@ -1,9 +1,3 @@
-<div
-  (click)="view.set(view() === 'grid' ? 'list' : 'grid')"
-  class="view-button"
->
-  {{ view() }}
-</div>
 <ul
   [class.list]="view() === 'list'"
   [class.grid]="view() === 'grid'"

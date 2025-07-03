@@ -17,6 +17,8 @@ export class App {
 
   activeTab = signal<TagType>('all');
 
+  view = signal<'list' | 'grid'>('list');
+
   setActiveTab(tab: TagType) {
     this.activeTab.set(tab);
     this.todos.set(this.todoService.getTodos());

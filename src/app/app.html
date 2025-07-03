@@ -9,9 +9,19 @@
   <div class="container">
     <h1>Angular 20 Todo App</h1>
     <todo-form (loadTodos)="loadTodos()" />
-    <tabs [activeTabInput]="activeTab()" (setActiveTab)="setActiveTab($event)" />
+    <div
+      (click)="view.set(view() === 'grid' ? 'list' : 'grid')"
+      class="view-button"
+    >
+      {{ view() }}
+    </div>
+    <tabs
+      [activeTabInput]="activeTab()"
+      (setActiveTab)="setActiveTab($event)"
+    />
     <todo-list
       [todos]="todos()"
+      [view]="view()"
       (toggle)="toggleTodo($event)"
       (delete)="deleteTodo($event)"
       (reorder)="reorderTodos($event)"
