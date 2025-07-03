@@ -3,7 +3,7 @@ import { TodoForm } from './components/todo-form/todo-form.component';
 import { TodoList } from './components/todo-list/todo-list.component';
 import { TodoService } from './services/todo.service';
 import { TagType, Todo } from './models/todo.model';
-import { Tabs } from "./tabs/tabs";
+import { Tabs } from './tabs/tabs';
 
 @Component({
   selector: 'todo-app',
@@ -15,11 +15,14 @@ export class App {
   todos = signal<Todo[]>([]);
   selectedTodo = signal<Todo | null>(null);
 
-  activeTab = signal<TagType>('daily')
+  activeTab = signal<TagType>('all');
 
   setActiveTab(tab: TagType) {
-    this.activeTab.set(tab)
-    this.loadTodos()
+    this.activeTab.set(tab);
+    this.todos.set(this.todoService.getTodos());
+    if (tab !== 'all') {
+      this.todos.set(this.todos().filter((todo) => todo.tag === tab));
+    }
   }
 
   constructor(private todoService: TodoService) {
@@ -27,7 +30,23 @@ export class App {
   }
 
   loadTodos() {
-    this.todos.set(this.todoService.getTodos(this.activeTab()));
+    const storageTodos = this.todoService.getTodos();
+
+    if (this.activeTab() === 'all') {
+      this.todos.set(storageTodos);
+    } else {
+      this.todos.set(
+        this.todoService
+          .getTodos()
+          .filter((todo) => todo.tag === this.activeTab())
+      );
+    }
+    // if (this.activeTab() === "all") {
+    //   this.todos.set(this.todoService.getTodos());
+    // }
+    // else [
+    //   this.todos.set()
+    // ]
   }
 
   // addTodo(title: string) {

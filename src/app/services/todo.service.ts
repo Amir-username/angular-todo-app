@@ -13,14 +13,14 @@ export class TodoService {
     this.isBrowser = isPlatformBrowser(platformId); // Check if running in browser
   }
 
-  getTodos(tag: TagType = 'daily'): Todo[] {
+  getTodos(): Todo[] {
     if (!this.isBrowser) return []; // Skip in non-browser environments
 
     const todosJson = localStorage.getItem(this.stroageKey);
 
     return (
-      todosJson &&
-      JSON.parse(todosJson).filter((todo: Todo) => todo.tag === tag && todo)
+      todosJson ?
+      JSON.parse(todosJson) : []
     );
   }
 

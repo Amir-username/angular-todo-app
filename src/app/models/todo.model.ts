@@ -1,4 +1,4 @@
-export type TagType = 'important' | 'shopping' | 'daily' | 'reminder'
+export type TagType = 'all' | 'important' | 'shopping' | 'daily' | 'reminder'
 
 export interface Todo {
   id: string;

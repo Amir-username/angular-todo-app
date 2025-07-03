@@ -1,6 +1,13 @@
 <div class="tabs">
   <div
     class="tab-item"
+    (click)="setActiveTab.emit('all')"
+    [class.active]="activeTabInput() === 'all'"
+  >
+    all
+  </div>
+  <div
+    class="tab-item"
     (click)="setActiveTab.emit('daily')"
     [class.active]="activeTabInput() === 'daily'"
   >
