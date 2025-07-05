@@ -9,8 +9,10 @@
 }
 h1 {
   text-align: center;
-  color: var(--color-primary);
+  background: linear-gradient(to right, var(--color-primary), hsl(325, 60%, 64%));
   margin-bottom: 4rem;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
 .grid {
