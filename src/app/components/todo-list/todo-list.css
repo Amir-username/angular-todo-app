@@ -68,6 +68,7 @@ li.grid {
   color: #ccc;
   user-select: none;
 }
+
 input[type="checkbox"] {
   margin-right: 1rem;
 }
@@ -97,8 +98,9 @@ form {
   margin-right: 1.8rem;
 }
 
-input {
+input[type="checkbox"] {
   cursor: pointer;
+  accent-color: var(--color-primary);
 }
 
 small {

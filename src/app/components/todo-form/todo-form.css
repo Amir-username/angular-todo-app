@@ -17,6 +17,7 @@ input {
   border-radius: 0.5rem;
   color: var(--color-text);
   border: 1.5px solid var(--color-gray-300);
+  accent-color: var(--color-primary);
 }
 
 input::placeholder {
