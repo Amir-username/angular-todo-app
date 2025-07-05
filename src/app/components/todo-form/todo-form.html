@@ -8,10 +8,10 @@
       required
     />
     <select name="tag" [(ngModel)]="tag">
-      <option value="daily">daily</option>
       <option value="important">important</option>
-      <option value="shopping">shopping</option>
       <option value="reminder">reminder</option>
+      <option value="shopping">shopping</option>
+      <option value="daily">daily</option>
     </select>
     <button type="submit">
       <span class="material-symbols-outlined add-icon"> add </span>
@@ -24,8 +24,14 @@
     placeholder="your task description"
     name="description"
   ></textarea>
-  <span (click)="isDescOpen.set(false)">close</span>
+  <div class="desc-button">
+    <span class="material-symbols-outlined add-circle"> cancel </span>
+    <span class="desc" (click)="isDescOpen.set(false)">close</span>
+  </div>
   } @else {
-  <span (click)="isDescOpen.set(true)">add description</span>
+  <div class="desc-button">
+    <span class="material-symbols-outlined add-circle"> add_circle </span>
+    <span class="desc" (click)="isDescOpen.set(true)">description</span>
+  </div>
   }
 </form>

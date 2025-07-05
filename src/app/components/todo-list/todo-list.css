@@ -25,7 +25,7 @@ li.list {
   /* transition: transform 250ms cubic-bezier(0, 0, 0.2, 1); */
   &.completed span:not(.drag-handle) {
     text-decoration: line-through;
-    color: var(--color-gray-400)
+    color: var(--color-gray-400);
   }
   cursor: pointer;
   /* &.cdk-drag-dragging {
@@ -51,9 +51,12 @@ li.grid {
   border-radius: 0.5rem;
   &.completed h4:not(.drag-handle) {
     text-decoration: line-through;
-    color: var(--color-gray-400)
+    color: var(--color-gray-400);
   }
-  cursor: pointer;
+}
+
+li.grid:hover {
+  box-shadow: 0 2px 4px var(--color-gray-300);
 }
 
 .grid-buttons {
@@ -107,7 +110,7 @@ small {
   color: var(--color-placeholder);
   margin-right: 1rem;
 }
-.close{
+.close {
   background: transparent;
   border: none;
   color: var(--color-accent);
@@ -122,4 +125,3 @@ small {
   margin-top: 3rem;
   color: var(--color-placeholder);
 }
-

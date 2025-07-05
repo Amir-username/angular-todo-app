@@ -6,11 +6,19 @@
 }
 
 .tab-item {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
   color: var(--color-placeholder);
   cursor: pointer;
   padding-bottom: 0.8rem;
+  text-transform: capitalize;
 }
 
 .active {
   border-bottom: 2px solid var(--color-primary);
+}
+
+.material-symbols-outlined {
+  font-size: 1.15rem;
 }

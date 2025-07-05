@@ -38,7 +38,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--color-primary-light)
+  background-color: var(--color-primary-light);
 }
 
 textarea {
@@ -47,11 +47,18 @@ textarea {
   border: 1.5px solid hsl(0, 4%, 80%);
 }
 
-span {
+/* span {
   font-size: 0.8rem;
-  color: hsl(0, 1%, 47%);
   cursor: pointer;
+} */
+
+span.button-text {
+  color: var(--color-gray-100);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: capitalize;
 }
+
 /* 
 span:hover {
   color: hsl(0, 1%, 20%);
@@ -70,8 +77,34 @@ option {
   cursor: pointer;
 }
 
+option:hover {
+  background-color: var(--color-primary-light);
+  accent-color: var(--color-primary-light);
+  color: var(--color-gray-100);
+}
 
 .add-icon {
   font-size: 20px;
   color: aliceblue;
+}
+
+.desc-button {
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.2rem;
+  align-items: center;
+  color: var(--color-placeholder);
+  cursor: pointer;
+}
+
+.desc-button:hover {
+  color: var(--color-gray-600);
+}
+
+.desc {
+  font-size: 1rem;
+}
+
+.add-circle {
+  font-size: 0.9rem;
 }

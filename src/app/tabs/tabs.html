@@ -4,6 +4,7 @@
     (click)="setActiveTab.emit('all')"
     [class.active]="activeTabInput() === 'all'"
   >
+    <span class="material-symbols-outlined"> done_all </span>
     all
   </div>
   <div
@@ -11,6 +12,7 @@
     (click)="setActiveTab.emit('important')"
     [class.active]="activeTabInput() === 'important'"
   >
+    <span class="material-symbols-outlined"> assignment_late </span>
     important
   </div>
   <div
@@ -18,6 +20,7 @@
     (click)="setActiveTab.emit('reminder')"
     [class.active]="activeTabInput() === 'reminder'"
   >
+    <span class="material-symbols-outlined"> alarm </span>
     reminder
   </div>
   <div
@@ -25,6 +28,7 @@
     (click)="setActiveTab.emit('shopping')"
     [class.active]="activeTabInput() === 'shopping'"
   >
+    <span class="material-symbols-outlined"> shopping_bag </span>
     shopping
   </div>
   <div
@@ -32,6 +36,7 @@
     (click)="setActiveTab.emit('daily')"
     [class.active]="activeTabInput() === 'daily'"
   >
+    <span class="material-symbols-outlined"> calendar_today </span>
     daily
   </div>
 </div>

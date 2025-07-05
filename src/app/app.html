@@ -13,7 +13,10 @@
       (click)="view.set(view() === 'grid' ? 'list' : 'grid')"
       class="view-button"
     >
-      {{ view() }}
+      @if (view() === 'list') {
+      <span class="material-symbols-outlined"> apps </span>
+      } @else {
+      <span class="material-symbols-outlined"> density_medium </span> }
     </div>
     <tabs
       [activeTabInput]="activeTab()"
