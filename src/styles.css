@@ -4,7 +4,7 @@
   box-sizing: border-box;
   /* Base color palette */
   --color-primary: hsl(0, 58%, 56%);
-  --color-primary-light: hsl(204, 70%, 60%);
+  --color-primary-light: hsl(0, 58%, 60%);
   --color-secondary: hsl(145, 63%, 49%);
   --color-accent: hsl(6, 78%, 57%);
 
@@ -42,4 +42,9 @@ body {
   padding: 0.75rem;
   display: flex;
   align-items: center;
+}
+
+
+.button-text {
+  color: var(--color-bg-container);
 }
