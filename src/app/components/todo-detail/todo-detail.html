@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>{{ title() }}</h1>
+  <span class="tag">
+    <span class="material-symbols-outlined">
+      @if (tag() === 'all') { done_all } @else if (tag() === 'important') {
+      assignment_late } @else if (tag() === 'reminder') { alarm } @else if
+      (tag() === 'shopping') { shopping_bag } @else { calendar_today } </span
+    ><b>{{ tag() }}</b></span
+  >
+  <div class="desc">
+    <span class="material-symbols-outlined quote-icon"> format_quote </span>
+    <p>{{ description() }}</p>
+  </div>
+</div>

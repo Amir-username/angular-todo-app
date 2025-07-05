@@ -4,10 +4,11 @@ import { TodoList } from './components/todo-list/todo-list.component';
 import { TodoService } from './services/todo.service';
 import { TagType, Todo } from './models/todo.model';
 import { Tabs } from './tabs/tabs';
+import { TodoDetail } from './components/todo-detail/todo-detail.component';
 
 @Component({
   selector: 'todo-app',
-  imports: [TodoForm, TodoList, Tabs],
+  imports: [TodoForm, TodoList, Tabs, TodoDetail],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

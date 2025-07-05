@@ -1,10 +1,10 @@
 <div class="grid">
-  @if (selectedTodo()) {
-  <div class="container">
-    <h1>{{ selectedTodo()?.title }}</h1>
-    <span class="tag">{{ selectedTodo()?.tag }}</span>
-    <p>{{ selectedTodo()?.description }}</p>
-  </div>
+  @if (selectedTodo() && selectedTodo()?.description) {
+  <todo-detail
+    [title]="selectedTodo()?.title!"
+    [tag]="selectedTodo()?.tag!"
+    [description]="selectedTodo()?.description!"
+  />
   }
   <div class="container">
     <h1>Angular 20 Todo App</h1>
